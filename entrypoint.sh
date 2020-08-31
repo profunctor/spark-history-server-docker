@@ -159,7 +159,8 @@ elif [[ "$enableGCS" == "true" ]]; then
 elif [[ "$enableS3" == "true" ]]; then
     export SPARK_HISTORY_OPTS="$SPARK_HISTORY_OPTS \
       -Dspark.history.fs.logDirectory=$eventsDir
-      -Dspark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem";
+      -Dspark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem
+      -Dcom.amazonaws.services.s3.enableV4"; # See https://stackoverflow.com/questions/34209196
     if [[ "$enableIAM" == "false" ]]; then
       export SPARK_HISTORY_OPTS="$SPARK_HISTORY_OPTS \
       -Dspark.hadoop.fs.s3a.access.key=$(cat /etc/secrets/${accessKeyName}) \
