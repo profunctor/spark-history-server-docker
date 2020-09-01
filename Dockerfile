@@ -12,6 +12,7 @@ ADD https://storage.googleapis.com/hadoop-lib/gcs/gcs-connector-latest-hadoop3.j
 
 # Add dependency for hadoop-aws
 ADD https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/1.11.851/aws-java-sdk-bundle-1.11.851.jar $SPARK_HOME/jars
+ADD https://repo1.maven.org/maven2/org/wildfly/openssl/wildfly-openssl/1.1.2.Final/wildfly-openssl-1.1.2.Final.jar $SPARK_HOME/jars
 # Add hadoop-aws to access Amazon S3
 ADD https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/3.3.0/hadoop-aws-3.3.0.jar $SPARK_HOME/jars
 
