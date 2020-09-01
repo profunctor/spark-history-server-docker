@@ -1,6 +1,9 @@
 ARG SPARK_IMAGE=gcr.io/spark-operator/spark:v3.0.0-hadoop3
 FROM ${SPARK_IMAGE}
 
+# Solving issue https://stackoverflow.com/questions/62726949. See also https://github.com/apache/spark/pull/23017/files 
+USER root
+
 # Set up dependencies for Google Cloud Storage access.
 RUN rm $SPARK_HOME/jars/guava-14.0.1.jar
 ADD https://repo1.maven.org/maven2/com/google/guava/guava/23.0/guava-23.0.jar $SPARK_HOME/jars
